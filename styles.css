@@ -3,13 +3,14 @@
   justify-content: center;
  flex-direction: column;
  align-items: center;
- border-style: dashed;
- border-color: red;
+ margin-top: 50px;
+ height: 200px;
 }
 
 body {
   background-image: url('back.webp');
   background-size: cover;
+  min-height: 100vh;
  
   /*
   to fall back on
@@ -17,31 +18,56 @@ body {
   background-color: #cccccc; 
 }
 
+h1 {
+  color: white;
+  font-family:'Elms Sans' ;
+  font-size: 50px;
+}
+
 
 .search {
   display: flex;
   justify-content: center;
   align-items: center;
+  
+}
+
+.search-img {
+  width: 20px;
+  height: 20px;
 }
 
 input {
-  width: 250px;
+  width: 300px;
   height: 50px;
   margin-right: 20px;
   border-radius: 30px;
   text-align: center;
+  font-family:Elms Sans ;
+ 
 }
 button {
-  width: 40px;
-  height:40px;
+  width: 50px;
+  height:50px;
   margin-top: 2px;
   border-radius: 10px;
   cursor: pointer;
   background-color: white;
-  
+ 
 }
 
-img {
-  height: 20px;
-  width: 20px;
+
+
+.gojo-img{
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
 }
+
+.gojo {
+height: 150px;
+
+}
+
+
