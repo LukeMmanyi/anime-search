@@ -70,4 +70,11 @@ height: 150px;
 
 }
 
+.anime-grid {
+  border-style: dashed;
+  border-color: red;
+  height: 900px;
+  margin-top: 40px;
+}
+
 
