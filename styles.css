@@ -73,8 +73,52 @@ height: 150px;
 .anime-grid {
   border-style: dashed;
   border-color: red;
-  height: 900px;
+  height: auto; 
+  min-height: max-content; 
   margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
+.anime-card {
+  width: 200px;
+  height: auto;
+  border-style: dashed;
+  border-color: red;
+  margin: 40px;
+  box-shadow: 0 0 15px rgba(100, 100, 255, 0.5);
+   border-radius: 20px;
+}
 
+.details {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.details-p {
+  color: white;
+  font-size: 20px;
+  margin-right: 8px;
+  margin-left: 8px;
+  font-family: Elms Sans;
+}
+
+.anime-img {
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.anime-title {
+  font-family: Elms Sans;
+  color: white;
+}
+
+.rating-info {
+  
+}
