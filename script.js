@@ -20,9 +20,9 @@ async function GenerateAnimeHTML(animeName) {
   animeData.data.forEach((anime) => {
     animeHtml += `
     <div class="anime-card">
-    <div class=rating-info>
+    <div class="rating-info">
     <p>⭐️</p>
-    <p class="rating">${anime.score}</p>
+    <p class="rating">${anime.score === null ? "No Rating" : anime.score}</p>
     </div>
     <img class="anime-img" src="${anime.images.jpg.image_url}">
 
@@ -30,7 +30,7 @@ async function GenerateAnimeHTML(animeName) {
   
     <div class="details">
     <p class="details-p">${anime.type}</p>
-     <p class="details-p">${anime.year}</p>
+     <p class="details-p">${anime.year === null ? (anime.aired.from === null ? "Unknown" : anime.aired.from.substring(0,4)) : anime.year}</p>
      </div>
 
 
@@ -49,4 +49,8 @@ async function GenerateAnimeHTML(animeName) {
   })
 
     animeGrid.innerHTML = animeHtml
+
+    const animeCards = document.querySelectorAll('.anime-card');
+
+    animeCards.forEach()
 }
