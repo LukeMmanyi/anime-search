@@ -1,6 +1,8 @@
 const search = document.querySelector('.anime-search');
 const button = document.querySelector('button');
 const animeGrid = document.querySelector('.anime-grid');
+const modal = document.querySelector(".modal")
+const modalDiv = document.querySelector(".overlay-modal")
 
 button.addEventListener('click', () => {
     const input = search.value;
@@ -19,7 +21,7 @@ async function GenerateAnimeHTML(animeName) {
 
   animeData.data.forEach((anime) => {
     animeHtml += `
-    <div class="anime-card">
+    <div class="anime-card" data-id="${anime.mal_id}">
     <div class="rating-info">
     <p>⭐️</p>
     <p class="rating">${anime.score === null ? "No Rating" : anime.score}</p>
@@ -35,7 +37,7 @@ async function GenerateAnimeHTML(animeName) {
 
 
      <div class="title">
-       <p class="anime-title">${anime.title}</p>
+       <p class="anime-title">${anime.title_english}</p>
      </div>
     
     
@@ -52,5 +54,18 @@ async function GenerateAnimeHTML(animeName) {
 
     const animeCards = document.querySelectorAll('.anime-card');
 
-    animeCards.forEach()
+    animeCards.forEach((animeCard) => {
+      animeCard.addEventListener('click', (e) => {
+        const anime = e.currentTarget;
+
+        const foundAnime = animeData.data.find((anime1) => anime1.mal_id === Number(anime.dataset.id))
+
+        console.log(foundAnime);
+
+      
+         modalDiv.style.display = "flex";
+
+        modal.innerHTML = `${foundAnime.synopsis}`;
+      })
+    })
 }
