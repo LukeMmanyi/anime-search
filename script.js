@@ -1,11 +1,13 @@
 const search = document.querySelector('.anime-search');
-const button = document.querySelector('button');
+const button = document.querySelector('.search-anime');
 const animeGrid = document.querySelector('.anime-grid');
-const modal = document.querySelector(".modal")
-const modalDiv = document.querySelector(".overlay-modal")
+const modal = document.querySelector(".modal");
+const modalDiv = document.querySelector(".overlay-modal");
+const exitButton = document.querySelector('.exit');
 
 button.addEventListener('click', () => {
     const input = search.value;
+    console.log(input);
     GenerateAnimeHTML(input);
 
 })
@@ -65,7 +67,14 @@ async function GenerateAnimeHTML(animeName) {
       
          modalDiv.style.display = "flex";
 
-        modal.innerHTML = `${foundAnime.synopsis}`;
+        modal.innerHTML = `
+        <button class="exit" onclick="modalDiv.style.display='none'" >X</button>
+        <p>${foundAnime.synopsis}</p>
+        `;
       })
+    })
+
+    exitButton.addEventListener('click', () => {
+      modalDiv.style.display = 'none';
     })
 }
