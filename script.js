@@ -15,7 +15,15 @@ button.addEventListener('click', () => {
 async function GenerateAnimeHTML(animeName) {
   const response = await fetch(`https://api.jikan.moe/v4/anime?q=${animeName}`);
 
+ 
   const animeData = await response.json();
+
+   if (response.status === 404 || animeData.data.length === 0) {
+    animeGrid.innerHTML = `
+    <p class="error">Anime Not Found. Please Try Again</p>
+    `;
+    return;
+  }
 
   console.log(animeData);
 
@@ -39,7 +47,7 @@ async function GenerateAnimeHTML(animeName) {
 
 
      <div class="title">
-       <p class="anime-title">${anime.title_english}</p>
+       <p class="anime-title">${anime.title_english !== null ? anime.title_english : anime.title}</p>
      </div>
     
     
@@ -54,13 +62,19 @@ async function GenerateAnimeHTML(animeName) {
 
     animeGrid.innerHTML = animeHtml
 
+    GenerateModal(animeData);
+    
+}
+
+
+function GenerateModal(aniData) {
     const animeCards = document.querySelectorAll('.anime-card');
 
     animeCards.forEach((animeCard) => {
       animeCard.addEventListener('click', (e) => {
         const anime = e.currentTarget;
 
-        const foundAnime = animeData.data.find((anime1) => anime1.mal_id === Number(anime.dataset.id))
+        const foundAnime = aniData.data.find((anime1) => anime1.mal_id === Number(anime.dataset.id))
 
         console.log(foundAnime);
 
@@ -69,6 +83,11 @@ async function GenerateAnimeHTML(animeName) {
 
         modal.innerHTML = `
         <button class="exit" onclick="modalDiv.style.display='none'" >X</button>
+        <div class="modal-h">
+        <p class="modal-p">${foundAnime.rating}</p>
+        <p class="modal-p">${foundAnime.episodes === null ? 'comming soon' : foundAnime.episodes + ' episodes'} </p>
+        <p class="modal-p">${foundAnime.status}</p>
+        </div>
         <p>${foundAnime.synopsis}</p>
         `;
       })
@@ -77,4 +96,4 @@ async function GenerateAnimeHTML(animeName) {
     exitButton.addEventListener('click', () => {
       modalDiv.style.display = 'none';
     })
-}
+  }

@@ -182,3 +182,18 @@ padding: 10px;
   border: none;
   cursor: pointer;
 }
+
+.modal-h {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.modal-p {
+  font-weight: bold;
+}
+
+.error {
+  font-size: 100px;
+  color: red;
+}
