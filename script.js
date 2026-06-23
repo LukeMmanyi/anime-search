@@ -85,7 +85,7 @@ function GenerateModal(aniData) {
         <button class="exit" onclick="modalDiv.style.display='none'" >X</button>
         <div class="modal-h">
         <p class="modal-p">${foundAnime.rating}</p>
-        <p class="modal-p">${foundAnime.episodes === null ? 'comming soon' : foundAnime.episodes + ' episodes'} </p>
+        <p class="modal-p">${foundAnime.episodes === null ? 'coming soon' : foundAnime.episodes + ' episodes'} </p>
         <p class="modal-p">${foundAnime.status}</p>
         </div>
         <p>${foundAnime.synopsis}</p>
