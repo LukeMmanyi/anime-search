@@ -2,7 +2,7 @@
 
 My anime search app, built with plain HTML/CSS/JS and the Jikan API.
 
-Live Demo
+[Live Demo](https://lukemmanyi.github.io/anime-search/)
 
 What it does
 
